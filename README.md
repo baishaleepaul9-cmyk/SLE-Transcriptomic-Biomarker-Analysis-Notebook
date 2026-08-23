@@ -1,64 +1,113 @@
-# SLE Transcriptomic Biomarker Analysis Notebook
+# SLE Transcriptomic Biomarker Analysis
 
-This repository contains the Google Colab/Jupyter notebook used for the transcriptomic analysis and diagnostic biomarker development for systemic lupus erythematosus (SLE).
+This repository contains the Google Colab/Jupyter notebook used for the
+transcriptomic analysis and diagnostic biomarker development for systemic
+lupus erythematosus (SLE).
 
-## Notebook
+## Contents
 
-**`FINAL_Manuscript_file (7).ipynb`**
+- `FINAL_Manuscript_file (7).ipynb` — complete analysis notebook
+- Required CSV input files used by the notebook
 
-The notebook contains the complete computational workflow, including data preprocessing, biomarker selection, diagnostic model development, external validation, and severity-associated gene analysis.
+## Datasets
 
-## Datasets Used
+The analysis uses publicly available gene-expression datasets from the
+NCBI Gene Expression Omnibus (GEO):
 
-The notebook uses publicly available gene-expression datasets from the Gene Expression Omnibus (GEO):
+- **GSE65391** — primary discovery/development cohort used for diagnostic
+  biomarker development.
+- **GSE81622** — external validation cohort.
+- **GSE49454** — external validation cohort.
+- **GSE88884** — used for independent statistical and severity-associated
+  analysis of the overlapping biomarkers IFI27, EPSTI1, and ZBP1.
 
-* **GSE65391** — primary discovery/development dataset used for diagnostic model development.
-* **GSE81622** — external validation dataset.
-* **GSE49454** — external validation dataset.
-* **GSE88884** — used for independent severity/statistical analysis of the overlapping genes IFI27, EPSTI1, and ZBP1.
+## Required Files
+
+The following files are required by the notebook for the archived analysis
+and should be available in the working data directory:
+
+- `GSE65391_final_13gene_development_matrix.csv`
+- `GSE81622_13gene_input.csv`
+- `GSE49454_final_13gene_input.csv`
+- `GSE88884_severity_phenotype.csv`
+
+Other intermediate files, models, checkpoints, figures, and statistical
+results are generated during execution of the notebook.
 
 ## Running the Notebook
 
-The notebook was developed and executed in **Google Colab**.
+The notebook was developed and executed using **Google Colab**.
 
-1. Download the `.ipynb` notebook.
-2. Open it using Google Colab.
-3. Connect your Google Drive when prompted.
-4. Ensure the required datasets and checkpoint files are available in the Google Drive locations specified in the notebook.
-5. Run the cells sequentially or select **Runtime → Run all**.
+### Steps
 
-## Google Drive
+1. Download or clone this repository.
+2. Open `FINAL_Manuscript_file (7).ipynb` in Google Colab.
+3. Upload or make the required CSV files available in the locations
+   expected by the notebook.
+4. Connect Google Drive when prompted by the notebook.
+5. Run the notebook sequentially, or use **Runtime → Run all**.
 
-The notebook uses Google Drive to store and access datasets, intermediate files, model files, checkpoints, and generated results.
+## Analysis Workflow
 
-When running the notebook under a different Google account, the required files must be available in the corresponding Google Drive locations.
+The notebook includes the following major analyses:
 
-## Analysis Included
+- Transcriptomic data preprocessing
+- Gene-level expression processing
+- Diagnostic biomarker selection
+- Development of the final diagnostic model
+- Evaluation of diagnostic performance
+- External validation using GSE81622 and GSE49454
+- Identification of overlapping biomarkers
+- Severity-associated analysis using GSE88884
+- Statistical testing of selected biomarkers
+- Generation of analysis results and figures
 
-The notebook performs:
+## Final Diagnostic Biomarker Panel
 
-* Gene-expression data preprocessing
-* Probe-to-gene mapping and expression processing
-* Diagnostic biomarker selection
-* Diagnostic model development
-* Model evaluation
-* External validation using GSE81622 and GSE49454
-* Severity-associated biomarker analysis using GSE88884
-* Statistical testing of selected overlapping genes
-* Generation and saving of analysis outputs and figures
+The final diagnostic workflow uses a 13-gene biomarker panel:
 
-## Environment
+- IFI27
+- RPL5
+- ZBP1
+- IFITM1
+- EPSTI1
+- EBI2
+- FCER1A
+- GADD45A
+- TNFSF13B
+- IFIT2
+- OSBPL10
+- SCRN1
+- TNFAIP6
 
-The notebook is intended for:
+## GSE88884 Statistical Analysis
 
-* **Google Colab**
-* **Python 3**
-* Google Drive
+The GSE88884 analysis evaluates the overlapping biomarkers:
 
-The notebook may require additional Python packages that are installed or imported within the notebook itself.
+- IFI27
+- EPSTI1
+- ZBP1
+
+The analysis includes associations with disease severity and statistical
+comparisons between severity groups.
 
 ## Reproducibility
 
-To reproduce the analysis, users should obtain the required GEO datasets and provide the required input and checkpoint files in the Google Drive locations expected by the notebook.
+The notebook contains the computational workflow used for the reported
+analysis. Intermediate files, models, checkpoints, figures, and statistical
+results are generated and/or saved during execution.
 
-The notebook should be executed in Google Colab because parts of the workflow depend on Google Colab and Google Drive functionality.
+The notebook was designed for execution in Google Colab and uses Google
+Drive for file storage and intermediate outputs.
+
+Users reproducing the analysis should ensure that the required input CSV
+files are available before running the relevant notebook sections.
+
+## Environment
+
+- Google Colab
+- Python 3
+- Jupyter Notebook
+
+Python packages required by the notebook are imported and/or installed
+within the notebook where applicable.
